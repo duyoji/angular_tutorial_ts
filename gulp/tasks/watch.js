@@ -8,5 +8,9 @@ module.exports = function (gulp) {
         watch(config.watch.ts, function () {
             gulp.start(['tsc']);
         });
+
+        watch(config.watch.tsTestUnit, function () {
+            gulp.start(['tsc:test:unit']);
+        });
     });
 };

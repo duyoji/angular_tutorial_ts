@@ -2,8 +2,10 @@
 
 var dest = 'dest';
 var src = 'src';
+var test = 'test';
 var path = require('path');
 var relativeSrcPath = path.relative('.', src);
+var relativeTestPath = path.relative('.', test);
 
 module.exports = {
     minify: {
@@ -42,8 +44,22 @@ module.exports = {
         }
     },
 
+    tsTestUnit: {
+        src: [
+            test + '/unit/ts/**/*.ts'
+        ],
+        dest   : test + '/unit/js',
+        options: {
+            noImplicitAny: true,
+            target       : 'ES6',
+            module       : 'commonjs',
+            sortOutput   : true
+        }
+    },
+
     watch: {
-        ts: relativeSrcPath + '/ts/**/*.ts',
-        js: relativeSrcPath + '/js/**/*.js'
+        ts        : relativeSrcPath + '/ts/**/*.ts',
+        tsTestUnit: relativeTestPath + '/unit/ts/**/*.ts',
+        js        : relativeSrcPath + '/js/**/*.js'
     }
 };
