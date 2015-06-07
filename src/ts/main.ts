@@ -1,6 +1,13 @@
+/// <reference path="../../typings/tsd.d.ts"/>
+
+import angular = require('angular');
+
+// (() => {
+//     alert(1);
+// })();
+
 function greeter(person:string = 'default name') {
     return `Hello, ${person}`;
 }
 
-var user = "Jane User";
-document.body.innerHTML = greeter(user);
+document.body.innerHTML = greeter();
