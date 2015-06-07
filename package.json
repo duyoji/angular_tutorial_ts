@@ -9,10 +9,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babelify": "^6.1.2",
-    "browserify": "^10.2.4",
     "eslint": "^0.22.1",
     "gulp": "^3.9.0",
+    "gulp-concat": "^2.5.2",
     "gulp-jsmin": "^0.1.5",
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^1.5.2",
@@ -20,9 +19,7 @@
     "gulp-typescript": "^2.7.6",
     "gulp-watch": "^4.2.4",
     "tsd": "^0.6.1",
-    "typescript": "^1.5.0-beta",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "typescript": "^1.5.0-beta"
   },
   "dependencies": {
     "angular": "^1.4.0",

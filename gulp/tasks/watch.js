@@ -8,9 +8,5 @@ module.exports = function (gulp) {
         watch(config.watch.ts, function () {
             gulp.start(['tsc']);
         });
-
-        watch(config.watch.js, function () {
-            gulp.start(['browserify']);
-        });
     });
 };

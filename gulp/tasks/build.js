@@ -2,6 +2,6 @@
 
 module.exports = function (gulp) {
     gulp.task('build', function () {
-        gulp.start(['tsc', 'browserify', 'minify']);
+        gulp.start(['tsc', 'minify']);
     });
 };

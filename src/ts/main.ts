@@ -1,11 +1,3 @@
-/// <reference path="../../typings/tsd.d.ts"/>
+/// <reference path="../../typings/tsd.d.ts" />
 
-import angular = require('angular');
-console.log(angular);
-/*
-function greeter(person:string = 'default name') {
-    return `Hello, ${person}`;
-}
-
-document.body.innerHTML = greeter();
-*/
+//console.log(1, 2, tmp.TestA);

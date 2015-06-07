@@ -7,7 +7,7 @@ var relativeSrcPath = path.relative('.', src);
 
 module.exports = {
     minify: {
-        src : dest + '/js/*.js',
+        src : [dest + '/js/*.js', dest + '/js/**/*.js'],
         dest: dest + '/js/min'
     },
 
@@ -17,29 +17,20 @@ module.exports = {
 
     ts: {
         src: [
-            src + '/ts/*.ts'
+            src + '/ts/**/*.ts'
         ],
-        dest   : src + '/js',
+        dest   : dest + '/js',
         options: {
             noImplicitAny: true,
             target       : 'ES6',
-            module       : 'commonjs'
-        }
-    },
-
-    browserify: {
-        entry: {
-            entries: src + '/js/main.js',
-            debug  : true
+            module       : 'commonjs',
+            sortOutput   : true
         },
-        dest  : dest + '/js',
-        output: {
-            filename: 'bundle.js'
-        }
+        outputFileName: 'bundle.js'
     },
 
     watch: {
-        ts: relativeSrcPath + '/ts/*.ts',
-        js: relativeSrcPath + '/js/*.js'
+        ts: relativeSrcPath + '/ts/**/*.ts',
+        js: relativeSrcPath + '/js/**/*.js'
     }
 };
