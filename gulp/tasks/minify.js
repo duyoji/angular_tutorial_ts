@@ -5,7 +5,7 @@ module.exports = function (gulp) {
     var rename = require('gulp-rename');
     var config = require('../config');
 
-    gulp.task('minify', function () {
+    gulp.task('minify', ['browserify'], function () {
         gulp.src(config.minify.src)
             .pipe(jsmin())
             .pipe(rename({suffix: '.min'}))
