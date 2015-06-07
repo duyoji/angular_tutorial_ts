@@ -1,0 +1,37 @@
+---
+  env:
+    node: true
+    browser: true
+    es6: true
+    phantomjs: true
+  rules:
+    strict: 2
+    indent: [2, 4]
+    comma-dangle: 2
+    no-extra-bind: 2
+    no-floating-decimal: 2
+    no-multi-spaces: 2
+    no-new: 2
+    no-self-compare: 2
+    no-throw-literal: 2
+    no-void: 2
+    no-warning-comments: 2
+    valid-jsdoc:
+      - 2
+      - requireParamDescription: true
+        requireReturnDescription: true
+    max-depth: [2, 1]
+    consistent-return: 2
+    eqeqeq: [2, "smart"]
+    radix: 2
+    vars-on-top: 1
+    camelcase: [2, {"properties": "never"}]
+    consistent-this: [1, "self"]
+    key-spacing: [2, { "align": "colon" }]
+    max-nested-callbacks: [2, 3]
+    no-mixed-spaces-and-tabs: [2, "smart-tabs"]
+    no-multiple-empty-lines: [2, {max: 1}]
+    operator-linebreak: [2, "before"]
+    quotes: [2, "single", "avoid-escape"]
+    max-len: [2, 80, 4]
+    max-params: [2, 3]
