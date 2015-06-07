@@ -1,3 +1,4 @@
-/// <reference path="../../typings/tsd.d.ts" />
+/// <reference path="./Controller/PhonecatApp/PhoneListController.ts" />
 
-//console.log(1, 2, tmp.TestA);
+import PhoneListController = Controller.PhonecatApp.PhoneListController;
+PhoneListController.init();
