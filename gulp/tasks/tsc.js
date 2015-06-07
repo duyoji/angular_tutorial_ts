@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (gulp) {
-    gulp.task('tsc', function () {
+    gulp.task('tsc', ['tsc:file'], function () {
         var typescript = require('gulp-typescript');
         var sourcemaps = require('gulp-sourcemaps');
         var concat = require('gulp-concat');

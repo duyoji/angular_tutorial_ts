@@ -29,6 +29,19 @@ module.exports = {
         outputFileName: 'bundle.js'
     },
 
+    tsPerFile: {
+        src: [
+            src + '/ts/**/*.ts'
+        ],
+        dest   : src + '/js',
+        options: {
+            noImplicitAny: true,
+            target       : 'ES6',
+            module       : 'commonjs',
+            sortOutput   : true
+        }
+    },
+
     watch: {
         ts: relativeSrcPath + '/ts/**/*.ts',
         js: relativeSrcPath + '/js/**/*.js'
