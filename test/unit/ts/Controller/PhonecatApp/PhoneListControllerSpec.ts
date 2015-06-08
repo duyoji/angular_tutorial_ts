@@ -10,6 +10,7 @@ describe('PhoneCat controllers', function() {
         it('should create "phones" model with 3 phones', inject(function($controller:any) {
             var ctrl = $controller('PhoneListController');
             expect(ctrl.phones.length).toBe(3);
+            expect(ctrl.name).toBe('World');
         }));
 
     });

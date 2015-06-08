@@ -5,15 +5,21 @@
     <title>Angular Tutorial With TypeScript and BABEL.</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="css/app.css">
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="dest/js/bundle.js"></script>
 </head>
 <body ng-controller="PhoneListController as c">
+    <p>Total number of phones: {{c.phones.length}}</p>
+    <p>Hello, {{c.name}}!</p>
     <ul>
         <li ng-repeat="phone in c.phones">
             <span>{{phone.name}}</span>
             <p>{{phone.snippet}}</p>
         </li>
     </ul>
-    <script src="node_modules/angular/angular.min.js"></script>
-    <script src="dest/js/bundle.js"></script>
+    <table>
+        <tr><th>row number</th></tr>
+        <tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{1+i}}</td></tr>
+    </table>
 </body>
 </html>

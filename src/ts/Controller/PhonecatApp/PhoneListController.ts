@@ -7,7 +7,8 @@ interface Phone {
 
 module Controller.PhonecatApp {
     export class PhoneListController {
-        public phones:Phone[]
+        public phones:Phone[];
+        public name:string;
 
         constructor () {
             this.phones = [
@@ -24,6 +25,7 @@ module Controller.PhonecatApp {
                     'snippet': 'The Next, Next Generation tablet.'
                 }
             ];
+            this.name = 'World';
         }
 
         static init () {
