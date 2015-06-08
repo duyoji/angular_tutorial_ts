@@ -57,9 +57,23 @@ module.exports = {
         }
     },
 
+    tsTestE2E: {
+        src: [
+            test + '/e2e/ts/**/*.ts'
+        ],
+        dest   : test + '/e2e/js',
+        options: {
+            noImplicitAny: true,
+            target       : 'ES6',
+            module       : 'commonjs',
+            sortOutput   : true
+        }
+    },
+
     watch: {
         ts        : relativeSrcPath + '/ts/**/*.ts',
         tsTestUnit: relativeTestPath + '/unit/ts/**/*.ts',
+        tsTestE2E : relativeTestPath + '/e2e/ts/**/*.ts',
         js        : relativeSrcPath + '/js/**/*.js'
     }
 };

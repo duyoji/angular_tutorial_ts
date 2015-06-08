@@ -12,5 +12,9 @@ module.exports = function (gulp) {
         watch(config.watch.tsTestUnit, function () {
             gulp.start(['tsc:test:unit']);
         });
+
+        watch(config.watch.tsTestE2E, function () {
+            gulp.start(['tsc:test:e2e']);
+        });
     });
 };
