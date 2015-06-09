@@ -5,13 +5,20 @@
 describe('PhoneCat controllers', function() {
 
     describe('PhoneListController', function(){
+        var ctrl: any;
 
         beforeEach(module('PhonecatApp'));
 
-        it('should create "phones" model with 3 phones', inject(function($controller:any) {
-            var ctrl = $controller('PhoneListController');
-            expect(ctrl.phones.length).toBe(3);
+        beforeEach(inject(function($controller:any) {
+            ctrl = $controller('PhoneListController');
         }));
 
+        it('should create "phones" model with 3 phones', function() {
+            expect(ctrl.phones.length).toBe(3);
+        });
+
+        it('should set the default value of orderProp model', function() {
+            expect(ctrl.orderProp).toBe('age');
+        });
     });
 });
