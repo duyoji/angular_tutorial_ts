@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="ja" ng-app="PhonecatApp">
+<html lang="ja" ng-app="PhonecatApp" ng-controller="PhoneListController as c">
 <head>
     <meta charset="UTF-8">
-    <title>Angular Tutorial With TypeScript and BABEL.</title>
+    <title ng-bind-template="Google Phone Gallery: {{c.query}}">Google Phone Gallery</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="css/app.css">
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="dest/js/bundle.js"></script>
 </head>
-<body ng-controller="PhoneListController as c">
+<body>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
