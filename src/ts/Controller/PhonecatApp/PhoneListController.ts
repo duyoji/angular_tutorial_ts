@@ -7,33 +7,23 @@ interface Phone {
 
 module Controller.PhonecatApp {
     export class PhoneListController {
-        public phones:    Phone[];
-        public orderProp: string;
+        public  phones: Phone[];
+        public  orderProp: string;
+        private httpService: angular.IHttpService;
 
-        constructor () {
-            this.phones = [
-                {
-                    'name': 'Nexus S',
-                    'snippet': 'Fast just got faster with Nexus S.',
-                    'age': 1
-                },
-                {
-                    'name': 'Motorola XOOM™ with Wi-Fi',
-                    'snippet': 'The Next, Next Generation tablet.',
-                    'age': 2
-                },
-                {
-                    'name': 'MOTOROLA XOOM™',
-                    'snippet': 'The Next, Next Generation tablet.',
-                    'age': 3
-                }
-            ];
+        constructor (httpService: angular.IHttpService) {
+            this.httpService = httpService;
             this.orderProp = 'age';
+            this.httpService
+                .get('data/phones/phones.json')
+                .success((data: any) => {
+                    this.phones = data;
+                });
         }
 
         static init () {
             var phonecatApp = angular.module('PhonecatApp', []);
-            phonecatApp.controller('PhoneListController', [PhoneListController]);
+            phonecatApp.controller('PhoneListController', ['$http', PhoneListController]);
         }
     }
 }
