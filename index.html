@@ -31,6 +31,7 @@
                         <p>{{phone.snippet}}</p>
                     </li>
                 </ul>
+                <pre>{{c.phones | filter: c.query | orderBy:c.orderProp | json}}</pre>
 
             </div>
         </div>
