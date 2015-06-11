@@ -54,5 +54,17 @@ describe('PhoneCat App', function() {
 
         });
 
+        it('should render phone specific links', function() {
+            var query = element(by.model('c.query'));
+            query.sendKeys('nexus');
+            element.all(by.css('.phones li a')).first().click();
+            browser.getLocationAbsUrl().then(function(url) {
+                // https://github.com/angular/angular-phonecat/issues/241
+                // "getLocationAbsUrl" returns relativePath
+                // expect(url.split('#')[1]).toBe('/phones/nexus-s');
+                expect(url).toBe('/phones/nexus-s');
+            });
+        });
+
     });
 });
