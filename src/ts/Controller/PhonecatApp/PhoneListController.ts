@@ -20,10 +20,5 @@ module Controller.PhonecatApp {
                     this.phones = data;
                 });
         }
-
-        static init () {
-            var phonecatApp = angular.module('PhonecatApp', []);
-            phonecatApp.controller('PhoneListController', ['$http', PhoneListController]);
-        }
     }
 }
