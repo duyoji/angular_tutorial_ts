@@ -16,12 +16,12 @@ function($routeProvider: angular.route.IRouteProvider) {
         .when('/phones', {
             templateUrl : 'partials/phone-list.html',
             controller  : 'PhoneListController',
-            controllerAs: 'c',
+            controllerAs: 'c'
         })
         .when('/phones/:phoneId', {
             templateUrl : 'partials/phone-detail.html',
             controller  : 'PhoneDetailController',
-            controllerAs: 'c',
+            controllerAs: 'c'
         })
         .otherwise({
             redirectTo: '/phones'
