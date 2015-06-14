@@ -36,5 +36,5 @@ phonecatControllers.controller(
 );
 phonecatControllers.controller(
     'PhoneDetailController',
-    ['$routeParams', PhoneDetailController]
+    ['$routeParams', '$http', PhoneDetailController]
 );
