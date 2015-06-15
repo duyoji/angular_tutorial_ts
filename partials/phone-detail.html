@@ -2,7 +2,11 @@
 
 <h1>{{c.phone.name}}</h1>
 
-<p>{{c.phone.description}}</p>
+<input ng-model="userInput"> Uppercased: {{ userInput | uppercase }}
+<p>{{ {foo: "bar", baz: 23} | json }}</p>
+<p>{{ 1304375948024 | date }}</p>
+<p>{{ 1304375948024 | date:"MM/dd/yyyy @ h:mma" }}</p>
+<p>{{c.phone.description | uppercase}}</p>
 
 <ul class="phone-thumbs">
   <li ng-repeat="img in c.phone.images">
