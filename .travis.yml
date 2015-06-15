@@ -6,3 +6,5 @@ branches:
     - master
     - develop
     - develop-travisci
+notifications:
+  email: false
