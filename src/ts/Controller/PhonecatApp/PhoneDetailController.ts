@@ -6,6 +6,7 @@ module Controller.PhonecatApp {
         private phoneId: string;
         private httpService: angular.IHttpService;
         private phone: any;
+        public  mainImageUrl: string;
 
         constructor (
             routeParams: angular.route.IRouteParamsService,
@@ -17,7 +18,12 @@ module Controller.PhonecatApp {
                 .get('data/phones/' + this.phoneId + '.json')
                 .success((data: any) => {
                     this.phone = data;
+                    this.mainImageUrl = this.phone.images[0];
                 });
+        }
+
+        setImage(imageUrl: string): void {
+            this.mainImageUrl = imageUrl;
         }
     }
 }
