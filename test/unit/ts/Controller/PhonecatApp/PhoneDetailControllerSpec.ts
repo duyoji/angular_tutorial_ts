@@ -6,6 +6,12 @@ describe('PhoneCat controllers', function() {
     describe('PhoneDetailController', function(){
         var ctrl: any;
         var $httpBackend: angular.IHttpBackendService;
+        var xyzPhoneData = function() {
+            return {
+                name: 'phone xyz',
+                images: ['image/url1.png', 'image/url2.png']
+            }
+        };
 
         beforeEach(module('PhonecatApp'));
 
@@ -19,7 +25,7 @@ describe('PhoneCat controllers', function() {
                     $httpBackend = _$httpBackend_;
                     $httpBackend
                         .expectGET('data/phones/xyz.json')
-                        .respond({name:'phone xyz'});
+                        .respond(xyzPhoneData());
                     $routeParams.phoneId = 'xyz';
                     ctrl = $controller('PhoneDetailController');
                 }
@@ -31,7 +37,8 @@ describe('PhoneCat controllers', function() {
             expect(ctrl.phone).toBeUndefined();
             $httpBackend.flush();
 
-            expect(ctrl.phone).toEqual({name:'phone xyz'});
+            expect(ctrl.phone).toEqual(xyzPhoneData());
+            expect(ctrl.mainImageUrl).toEqual(xyzPhoneData().images[0]);
         });
     });
 });
