@@ -12,10 +12,9 @@ module.exports = function(config){
         ],
         autoWatch : true,
         frameworks: ['jasmine'],
-        browsers  : ['Chrome', 'Firefox'],
+        browsers  : ['PhantomJS'],
         plugins   : [
-            'karma-chrome-launcher',
-            'karma-firefox-launcher',
+            'karma-phantomjs-launcher',
             'karma-jasmine'
         ],
         junitReporter: {
