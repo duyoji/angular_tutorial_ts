@@ -25,5 +25,9 @@ module Controller.PhonecatApp {
         setImage(imageUrl: string): void {
             this.mainImageUrl = imageUrl;
         }
+
+        hello(name: string): void {
+            alert(`Hello ${(name || 'world')} !`);
+        }
     }
 }
