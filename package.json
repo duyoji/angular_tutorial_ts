@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prestart": "npm install; ./bin/gulp build; ./bin/gulp tsc:test:unit; ./bin/gulp tsc:test:e2e",
+    "prestart": "npm install",
     "start": "http-server -a 0.0.0.0 -p 8000",
-    "pretest": "npm install",
+    "pretest": "npm install; ./bin/gulp build; ./bin/gulp tsc:test:unit; ./bin/gulp tsc:test:e2e",
     "test": "node node_modules/karma/bin/karma start test/karma.conf.js",
     "test-single-run": "node node_modules/karma/bin/karma start test/karma.conf.js  --single-run",
     "preupdate-webdriver": "npm install",
