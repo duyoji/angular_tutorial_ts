@@ -5,9 +5,11 @@
 
 import PhoneListController   = Controller.PhonecatApp.PhoneListController;
 import PhoneDetailController = Controller.PhonecatApp.PhoneDetailController;
+
 var phonecatApp = angular.module('PhonecatApp', [
     'ngRoute',
-    'phonecatControllers'
+    'phonecatControllers',
+    'phonecatFilters'
 ]);
 
 phonecatApp.config(['$routeProvider',
@@ -28,6 +30,7 @@ function($routeProvider: angular.route.IRouteProvider) {
         });
 }]);
 
+// contoroller setting
 var phonecatControllers = angular.module('phonecatControllers', []);
 
 phonecatControllers.controller(
@@ -38,3 +41,9 @@ phonecatControllers.controller(
     'PhoneDetailController',
     ['$routeParams', '$http', PhoneDetailController]
 );
+
+angular.module('phonecatFilters', []).filter('checkmark', function() {
+    return function(input: boolean) {
+        return input ? '\u2713' : '\u2718';
+    };
+});
