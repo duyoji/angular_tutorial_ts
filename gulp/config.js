@@ -50,7 +50,7 @@ module.exports = {
         ],
         dest   : test + '/unit/js',
         options: {
-            noImplicitAny: true,
+            noImplicitAny: false,
             target       : 'ES6',
             module       : 'commonjs',
             sortOutput   : true

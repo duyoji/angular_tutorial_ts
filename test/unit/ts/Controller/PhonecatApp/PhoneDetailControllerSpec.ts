@@ -3,6 +3,23 @@
 
 /* jasmine specs for controllers go here */
 describe('PhoneCat controllers', function() {
+
+    beforeEach(function(){
+        jasmine.addMatchers({
+            toEqualData: function(util: any, customEqualityTesters: any) {
+                return {
+                    compare: function(actual: any, expected: any) {
+                        var passed = angular.equals(actual, expected);
+                        return {
+                            pass: passed,
+                            message: 'Expected ' + actual + (passed ? '' : ' not') + ' to equal ' + expected
+                        };
+                    }
+                };
+            }
+        });
+    });
+
     describe('PhoneDetailController', function(){
         var ctrl: any;
         var $httpBackend: angular.IHttpBackendService;
@@ -14,6 +31,7 @@ describe('PhoneCat controllers', function() {
         };
 
         beforeEach(module('PhonecatApp'));
+        beforeEach(module('phonecatServices'));
 
         beforeEach(
             inject(
@@ -34,11 +52,10 @@ describe('PhoneCat controllers', function() {
 
 
         it('should fetch phone detail', function() {
-            expect(ctrl.phone).toBeUndefined();
+            expect(ctrl.phone)['toEqualData']({});
             $httpBackend.flush();
 
-            expect(ctrl.phone).toEqual(xyzPhoneData());
-            expect(ctrl.mainImageUrl).toEqual(xyzPhoneData().images[0]);
+            expect(ctrl.phone)['toEqualData'](xyzPhoneData());
         });
     });
 });
