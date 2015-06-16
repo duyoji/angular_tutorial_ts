@@ -1,5 +1,6 @@
 /// <reference path="../../typings/angularjs/angular.d.ts" />
 /// <reference path="../../typings/angularjs/angular-route.d.ts" />
+/// <reference path="../../typings/angularjs/angular-resource.d.ts" />
 /// <reference path="./Controller/PhonecatApp/PhoneListController.ts" />
 /// <reference path="./Controller/PhonecatApp/PhoneDetailController.ts" />
 
@@ -9,7 +10,8 @@ import PhoneDetailController = Controller.PhonecatApp.PhoneDetailController;
 var phonecatApp = angular.module('PhonecatApp', [
     'ngRoute',
     'phonecatControllers',
-    'phonecatFilters'
+    'phonecatFilters',
+    'phonecatServices'
 ]);
 
 phonecatApp.config(['$routeProvider',
@@ -35,15 +37,37 @@ var phonecatControllers = angular.module('phonecatControllers', []);
 
 phonecatControllers.controller(
     'PhoneListController',
-    ['$http', PhoneListController]
+    ['Phone', PhoneListController]
 );
 phonecatControllers.controller(
     'PhoneDetailController',
-    ['$routeParams', '$http', PhoneDetailController]
+    ['$routeParams', 'Phone', PhoneDetailController]
 );
 
+// filter setting
 angular.module('phonecatFilters', []).filter('checkmark', function() {
     return function(input: boolean) {
         return input ? '\u2713' : '\u2718';
     };
 });
+
+// service setting
+var phonecatServices = angular.module('phonecatServices', ['ngResource']);
+phonecatServices.factory(
+    'Phone',
+    ['$resource', function($resource: angular.resource.IResourceService){
+    return $resource(
+        'data/phones/:phoneId.json',
+        {},
+        {
+            query: {
+                method:'GET',
+                params:{
+                    phoneId:'phones'
+                },
+                isArray:true
+            }
+        }
+    );
+    }]
+);

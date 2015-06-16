@@ -7,18 +7,12 @@ interface Phone {
 
 module Controller.PhonecatApp {
     export class PhoneListController {
-        public  phones: Phone[];
-        public  orderProp: string;
-        private httpService: angular.IHttpService;
+        public phones: Phone[];
+        public orderProp: string;
 
-        constructor (httpService: angular.IHttpService) {
-            this.httpService = httpService;
+        constructor (Phone: any) {
+            this.phones    = Phone.query();
             this.orderProp = 'age';
-            this.httpService
-                .get('data/phones/phones.json')
-                .success((data: any) => {
-                    this.phones = data;
-                });
         }
     }
 }
