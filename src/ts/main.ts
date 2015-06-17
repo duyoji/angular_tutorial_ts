@@ -9,6 +9,7 @@ import PhoneDetailController = Controller.PhonecatApp.PhoneDetailController;
 
 var phonecatApp = angular.module('PhonecatApp', [
     'ngRoute',
+    'phonecatAnimations',
     'phonecatControllers',
     'phonecatFilters',
     'phonecatServices'
@@ -71,3 +72,6 @@ phonecatServices.factory(
     );
     }]
 );
+
+// animatio setting
+angular.module('phonecatAnimations', ['ngAnimate']);
