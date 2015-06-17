@@ -1,6 +1,8 @@
+/// <reference path="../../typings/jquery/jquery.d.ts" />
 /// <reference path="../../typings/angularjs/angular.d.ts" />
 /// <reference path="../../typings/angularjs/angular-route.d.ts" />
 /// <reference path="../../typings/angularjs/angular-resource.d.ts" />
+/// <reference path="../../typings/angularjs/angular-animate.d.ts" />
 /// <reference path="./Controller/PhonecatApp/PhoneListController.ts" />
 /// <reference path="./Controller/PhonecatApp/PhoneDetailController.ts" />
 
@@ -73,5 +75,55 @@ phonecatServices.factory(
     }]
 );
 
-// animatio setting
-angular.module('phonecatAnimations', ['ngAnimate']);
+// animation setting
+var phonecatAnimations = angular.module('phonecatAnimations', ['ngAnimate']);
+phonecatAnimations.animation('.phone', function() {
+
+    var animateUp = function(element: JQuery, className: string, done: any) {
+        if(className != 'active') {
+            return;
+        }
+        element.css({
+            position: 'absolute',
+            top: 500,
+            left: 0,
+            display: 'block'
+        });
+
+        jQuery(element).animate({
+            top: 0
+        }, done);
+
+        return function(cancel: boolean) {
+            if(cancel) {
+                element.stop();
+            }
+        };
+    };
+
+    var animateDown = function(element: JQuery, className: string, done: any) {
+        if(className != 'active') {
+            return;
+        }
+        element.css({
+            position: 'absolute',
+            left: 0,
+            top: 0
+        });
+
+        jQuery(element).animate({
+            top: -500
+        }, done);
+
+        return function(cancel: boolean) {
+            if(cancel) {
+                element.stop();
+            }
+        };
+    };
+
+    return {
+        addClass: animateUp,
+        removeClass: animateDown
+    };
+});

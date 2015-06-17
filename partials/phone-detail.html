@@ -1,4 +1,10 @@
-<img ng-src="{{c.mainImageUrl}}" class="phone">
+<!-- We're only changing the top of the file -->
+<div class="phone-images">
+    <img ng-src="{{c.mainImageUrl}}"
+         class="phone"
+         ng-repeat="img in c.phone.images"
+         ng-class="{active: mainImageUrl==img}">
+</div>
 
 <h1>{{c.phone.name}}</h1>
 
